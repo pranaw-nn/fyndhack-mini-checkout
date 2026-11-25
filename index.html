@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FyndHack Mini Checkout</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page" aria-labelledby="page-title">
+      <header class="hero">
+        <p class="eyebrow">FyndHack Checkout</p>
+        <h1 id="page-title">Mini Checkout</h1>
+        <p class="subtitle">Frontend-only cart built with paise-accurate pricing.</p>
+      </header>
+
+      <section class="panel" aria-labelledby="products-heading">
+        <h2 id="products-heading">Products</h2>
+        <div id="product-list" class="stack" data-testid="product-list"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="cart-heading">
+        <h2 id="cart-heading">Cart</h2>
+        <p id="empty-cart-message" data-testid="empty-cart-message">Your cart is empty.</p>
+        <table class="cart-table" data-testid="cart-table">
+          <caption class="sr-only">
+            Shopping cart items and totals
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Line total</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="cart-body"></tbody>
+        </table>
+
+        <div class="total-row">
+          <strong>Order total:</strong>
+          <output id="order-total" data-testid="order-total" aria-live="polite">₹0.00</output>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="checkout-heading">
+        <h2 id="checkout-heading">Checkout</h2>
+        <form id="checkout-form" novalidate>
+          <label for="customer-name">Customer name</label>
+          <input
+            id="customer-name"
+            name="customerName"
+            type="text"
+            autocomplete="name"
+            required
+            data-testid="customer-name"
+          />
+          <p id="name-error" class="error" data-testid="name-error" aria-live="polite"></p>
+          <p id="cart-error" class="error" data-testid="cart-error" aria-live="polite"></p>
+          <p id="empty-cart-hint" class="hint" data-testid="empty-cart-hint" aria-live="polite"></p>
+
+          <button type="submit" id="checkout-button" data-testid="checkout-button">Place Order</button>
+        </form>
+        <div id="confirmation" class="confirmation" data-testid="confirmation" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
